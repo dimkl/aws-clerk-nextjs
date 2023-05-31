@@ -8,6 +8,9 @@ export default function Home() {
       <div>
         <UserButton afterSignOutUrl="/" />
       </div>
+      <div>
+        <a href="/protected"> Protected page </a>
+      </div>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
