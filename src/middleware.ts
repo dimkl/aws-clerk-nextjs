@@ -3,12 +3,13 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
     beforeAuth: ({ headers }) => {
         console.log({
-            origin: headers.get('origin') || undefined,
-            host: headers.get('host') as string,
-            forwardedPort: headers.get('x-forwarded-port') || undefined,
-            forwardedHost: headers.get('x-forwarded-host') || undefined,
-            referrer: headers.get('referer') || undefined,
-            userAgent: headers.get('user-agent') || undefined,
+            origin: headers.get('origin'),
+            host: headers.get('host'),
+            forwardedPort: headers.get('x-forwarded-port'),
+            forwardedHost: headers.get('x-forwarded-host'),
+            forwardedProto: headers.get('x-forwarded-proto'),
+            referrer: headers.get('referer'),
+            userAgent: headers.get('user-agent'),
         });
     }
 });
