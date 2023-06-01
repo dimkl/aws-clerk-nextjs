@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 export default authMiddleware({
     beforeAuth: ({ headers, nextUrl }) => {
+        console.log(`${nextUrl.href}  headers: `, serializeHeaders(headers));
         console.log(`${nextUrl.href}  beforeAuth: `, JSON.stringify({
             origin: headers.get('origin'),
             host: headers.get('host'),
@@ -26,3 +27,9 @@ export default authMiddleware({
 export const config = {
     matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+
+function serializeHeaders(headers: Headers) {
+    const h: Record<string, string> = {};
+    headers.forEach((value, key) => h[key] = value);
+    return JSON.stringify(h);
+}
