@@ -1,9 +1,11 @@
 import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
+import { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
 import { NextResponse } from "next/server";
 
 export default authMiddleware({
-    beforeAuth: ({ headers, nextUrl }) => {
+    beforeAuth: ({ headers, cookies, nextUrl }) => {
         console.log(`${nextUrl.href}  headers: `, serializeHeaders(headers));
+        console.log(`${nextUrl.href}  cookies: `, serializeCookies(cookies));
         console.log(`${nextUrl.href}  beforeAuth: `, JSON.stringify({
             origin: headers.get('origin'),
             host: headers.get('host'),
@@ -32,4 +34,8 @@ function serializeHeaders(headers: Headers) {
     const h: Record<string, string> = {};
     headers.forEach((value, key) => h[key] = value);
     return JSON.stringify(h);
+}
+
+function serializeCookies(cookies: RequestCookies) {
+    return JSON.stringify(cookies.getAll());
 }
