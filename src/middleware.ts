@@ -23,7 +23,8 @@ export default authMiddleware({
             return redirectToSignIn({ returnBackUrl: req.url });
         }
         return NextResponse.next();
-    }
+    },
+    debug: true
 });
 
 export const config = {
