@@ -1,4 +1,5 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
+import { NextResponse } from "next/server";
 
 export default authMiddleware({
     beforeAuth: ({ headers }) => {
@@ -11,6 +12,13 @@ export default authMiddleware({
             referrer: headers.get('referer'),
             userAgent: headers.get('user-agent'),
         });
+    },
+    afterAuth: (auth, req) => {
+        console.log('afterAuth: ', auth);
+        if (!auth.userId && !auth.isPublicRoute) {
+            return redirectToSignIn({ returnBackUrl: req.url });
+        }
+        return NextResponse.next();
     }
 });
 
