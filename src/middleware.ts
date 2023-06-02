@@ -24,6 +24,7 @@ export default authMiddleware({
         }
         return NextResponse.next();
     },
+    publicRoutes: ['/'],
     debug: true
 });
 
