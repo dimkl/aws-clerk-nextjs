@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.20.0-staging.c9125a0",
+    "@clerk/nextjs": "latest",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
-    "next": "^13.4.4",
+    "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
