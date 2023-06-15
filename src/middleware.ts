@@ -25,6 +25,7 @@ export default authMiddleware({
         return NextResponse.next();
     },
     publicRoutes: ['/'],
+    ignoredRoutes: ['/iframe'],
     debug: true
 });
 
