@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next';
 import React from 'react';
 import { createClerkClient } from '@clerk/nextjs/server';
-import { useSignIn, useUser } from '@clerk/nextjs';
+import { useSignIn, useUser, useAuth } from '@clerk/nextjs';
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const clerkClient = createClerkClient({
@@ -19,10 +19,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 const IframePage = ({ signInToken }: { signInToken: string }) => {
   const { signIn } = useSignIn();
+  const { getToken } = useAuth();
   const { user } = useUser();
 
   React.useEffect(() => {
-    void signIn?.create({ strategy: 'ticket', ticket: signInToken }).catch();
+    void signIn
+      ?.create({ strategy: 'ticket', ticket: signInToken })
+      ?.then(() => getToken())
   }, [])
 
   return (
