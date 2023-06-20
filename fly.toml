@@ -6,6 +6,14 @@
 app = "aws-clerk-nextjs"
 primary_region = "lhr"
 
+[build.args]
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_YmFsYW5jZWQtYnV6emFyZC0zMi5jbGVyay5hY2NvdW50cy5kZXYk"
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+  NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL="/protected"
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL="/protected"
+  HOSTNAME="aws-clerk-nextjs.fly.dev"
+
 [http_service]
   internal_port = 3000
   force_https = true

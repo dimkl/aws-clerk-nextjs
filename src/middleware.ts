@@ -3,9 +3,8 @@ import { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
 import { NextResponse } from "next/server";
 
 export default authMiddleware({
-    beforeAuth: ({ headers, url, nextUrl }) => {
-        console.log(`${nextUrl.href} ${url}`);
-        console.log(`${nextUrl.href}  beforeAuth: `, JSON.stringify({
+    beforeAuth: ({ headers, url, nextUrl, ...rest }) => {
+        console.log(`${nextUrl.href} ${url} beforeAuth: `, JSON.stringify({
             origin: headers.get('origin'),
             host: headers.get('host'),
             forwardedPort: headers.get('x-forwarded-port'),
@@ -16,17 +15,8 @@ export default authMiddleware({
         }));
         return NextResponse.next();
     },
-    afterAuth: (auth, req) => {
-        console.log(`${req.nextUrl.href}  afterAuth: `, JSON.stringify(auth));
-        if (!auth.userId && !auth.isPublicRoute) {
-            console.log(`${req.nextUrl.href}  redirectToSignIn(${req.url}): `, JSON.stringify(req.cookies.get('__session')));
-            return redirectToSignIn({ returnBackUrl: req.url });
-        }
-        return NextResponse.next();
-    },
     publicRoutes: ['/'],
     ignoredRoutes: ['/iframe'],
-    debug: true
 });
 
 export const config = {
