@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node prebuild.js",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && cp -R public/ .next/standalone && cp -R .next/static .next/standalone/.next",
+    "start": "node .next/standalone/server.js",
     "lint": "next lint"
   },
   "dependencies": {
