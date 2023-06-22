@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.node18
+      context: ./
+    command: npm start
+    ports:
+      - "8000:3000"
+    env_file:
+      - .env.local
