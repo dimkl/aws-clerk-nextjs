@@ -12,6 +12,7 @@ export default authMiddleware({
             forwardedProto: headers.get('x-forwarded-proto'),
             referrer: headers.get('referer'),
             userAgent: headers.get('user-agent'),
+            CLERK_TRUST_HOST: process.env.CLERK_TRUST_HOST
         }));
         return NextResponse.next();
     },
