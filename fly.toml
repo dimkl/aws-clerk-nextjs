@@ -12,7 +12,7 @@ primary_region = "lhr"
   NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL="/protected"
   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL="/protected"
-  HOSTNAME="aws-clerk-nextjs.fly.dev"
+  CLERK_TRUST_HOST="true"
 
 [http_service]
   internal_port = 3000
