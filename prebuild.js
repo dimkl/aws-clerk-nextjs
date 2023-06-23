@@ -1,4 +1,3 @@
-console.log("********* PREBUILDING");
 const path = require("node:path");
 const fs = require("fs");
 const baseDir = process.cwd();
@@ -21,5 +20,6 @@ const prebuildScripts = async () => {
 };
 
 if (process.env.RUN_PREBUILD){
+  console.log("********* PREBUILDING");
   prebuildScripts();
 }
