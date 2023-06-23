@@ -63,11 +63,11 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/protected
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/protected
 
-CLERK_TRUST_PROXY="true"
+CLERK_TRUST_HOST="true"
 ```
 
 Run
 
 ```bash
-docker-compose up --build # and visit http://localhost:8000
+docker-compose up --build # and visit http://localhost:8000 (ignore 3000 port that is shown in server log)
 ```
