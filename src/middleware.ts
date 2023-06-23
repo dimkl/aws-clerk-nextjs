@@ -17,6 +17,7 @@ export default authMiddleware({
     },
     publicRoutes: ['/'],
     ignoredRoutes: ['/iframe'],
+    debug: true
 });
 
 export const config = {
