@@ -7,6 +7,7 @@ frontend:
     build:
       commands:
         - env | grep -e CLERK_SECRET_KEY >> .env.production
+        - env | grep -e CLERK_TRUST_HOST >> .env.production
         - env | grep -e NEXT_PUBLIC_ >> .env.production
         - npm run build
   artifacts:
