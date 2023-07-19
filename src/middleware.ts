@@ -1,5 +1,4 @@
-import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
-import { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
+import { authMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 export default authMiddleware({
