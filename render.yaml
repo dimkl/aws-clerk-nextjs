@@ -3,8 +3,8 @@ services:
   name: aws-clerk-nextjs
   env: node
   plan: starter
-  buildCommand: yarn; yarn build
-  startCommand: yarn start
+  buildCommand: npm i; npm run build
+  startCommand: npm start
   autoDeploy: true
   envVars:
   - key: NODE_ENV
