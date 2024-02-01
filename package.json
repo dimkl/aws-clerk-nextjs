@@ -7,16 +7,17 @@
     "prebuild": "node prebuild.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:standalone": "next build && next export -o webDist/"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.23.1",
+    "@clerk/nextjs": "^5.0.0-beta-v5.20",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
-    "next": "latest",
+    "next": "^14.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
