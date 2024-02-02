@@ -2,7 +2,7 @@ version: '3.8'
 services:
   web:
     build:
-      dockerfile: Dockerfile.node18
+      dockerfile: Dockerfile.node20
       context: ./
     command: npm start
     ports:
